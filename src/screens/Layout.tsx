@@ -19,8 +19,11 @@ export default function AppBarWeb() {
                     <Container maxWidth='xl'>
                         <Toolbar>
                             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                                Products
+                                <Link to={'/'} style={{ color: 'white', textDecoration: 'none' }}>
+                                    Products
+                                </Link>
                             </Typography>
+
                             <Button color="inherit">Login</Button>
                             <Link to={'/carts'} style={{ color: 'white', textDecoration: 'none' }}>
                                 <div>cart anda: {stateKeranjang.length > 0 ? stateKeranjang.length : 0}</div>

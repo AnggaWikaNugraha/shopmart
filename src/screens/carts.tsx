@@ -1,12 +1,5 @@
-import { styled } from '@mui/material/styles';
-import { Box, Card, CardActions, CardContent, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
-import React from 'react'
+import { Box, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    boxShadow: 'none'
-}));
 
 const Carts = () => {
 
@@ -29,7 +22,7 @@ const Carts = () => {
                                         />
                                         <CardContent>
                                             <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
-                                            <Typography gutterBottom variant="h5" component="div">Berat : {value?.weight}</Typography>
+                                            <Typography variant="body2" color="text.secondary">Berat : {value?.weight}</Typography>
                                             <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
                                             <Typography variant="body2" color="text.secondary">{value?.qty}</Typography>
                                         </CardContent>
@@ -43,7 +36,6 @@ const Carts = () => {
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Keranjang anda : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Berat : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
-
                 </Grid>
             </Box>
         </Container>

@@ -38,7 +38,7 @@ export default function Drinks() {
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
-                                        <Typography gutterBottom variant="h5" component="div">Berat : {value?.weight} gran</Typography>
+                                        <Typography variant="body2" color="text.secondary">Berat : {value?.weight} gran</Typography>
                                         <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
                                     </CardContent>
                                     <CardActions>
