@@ -6,8 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function AppBarWeb() {
+
+    const stateKeranjang = useSelector((state: any) => state.stateKeranjang);
+
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
@@ -18,6 +22,7 @@ export default function AppBarWeb() {
                                 Products
                             </Typography>
                             <Button color="inherit">Login</Button>
+                            <div>cart anda: {stateKeranjang.length > 0 ? stateKeranjang.length : 0}</div>
                         </Toolbar>
                     </Container>
                 </AppBar>

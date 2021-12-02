@@ -6,20 +6,23 @@ import {
   Route
 } from "react-router-dom";
 import Layout from './screens/Layout';
-
+import { Provider } from 'react-redux';
+import store from "../src/redux/store";
 const Beranda = lazy(() => import('./screens/Beranda'));
 
 function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Beranda />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Beranda />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

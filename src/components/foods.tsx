@@ -11,8 +11,17 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 import { foods } from '../data/foods'
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/action/keranjang';
 
 export default function Foods() {
+
+    const dispatch = useDispatch()
+
+    const toKeranjang = (item: { id: number, title: string, harga: number }) => {
+        dispatch(addItem(item))
+    }
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
@@ -32,7 +41,7 @@ export default function Foods() {
                                         <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Keranjang size="small">Add Keranjang</Keranjang>
+                                        <Keranjang onClick={() => toKeranjang(value)} size="small">Add Keranjang</Keranjang>
                                     </CardActions>
                                 </Card>
                             </Grid>
