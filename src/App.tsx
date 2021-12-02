@@ -8,6 +8,7 @@ import {
 import Layout from './screens/Layout';
 import { Provider } from 'react-redux';
 import store from "../src/redux/store";
+import Carts from './screens/carts';
 const Beranda = lazy(() => import('./screens/Beranda'));
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Beranda />} />
+              <Route path="/carts" element={<Carts />} />
             </Route>
           </Routes>
         </Suspense>

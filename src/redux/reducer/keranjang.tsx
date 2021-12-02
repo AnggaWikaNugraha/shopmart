@@ -5,7 +5,7 @@ type IAction = {
     payload?: any
 }
 
-const initialState: any = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart') as string) : [];
+const initialState: any = [];
 
 export default function reducer(state = initialState, action: IAction) {
 

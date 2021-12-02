@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function AppBarWeb() {
@@ -22,7 +22,9 @@ export default function AppBarWeb() {
                                 Products
                             </Typography>
                             <Button color="inherit">Login</Button>
-                            <div>cart anda: {stateKeranjang.length > 0 ? stateKeranjang.length : 0}</div>
+                            <Link to={'/carts'} style={{ color: 'white', textDecoration: 'none' }}>
+                                <div>cart anda: {stateKeranjang.length > 0 ? stateKeranjang.length : 0}</div>
+                            </Link>
                         </Toolbar>
                     </Container>
                 </AppBar>

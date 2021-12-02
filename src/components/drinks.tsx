@@ -18,7 +18,7 @@ export default function Drinks() {
 
     const dispatch = useDispatch()
 
-    const toKeranjang = (item: { id: number, title: string, harga: number }) => {
+    const toKeranjang = (item: { id: number, title: string, harga: number, weight: number }) => {
         dispatch(addItem(item))
     }
 
@@ -38,6 +38,7 @@ export default function Drinks() {
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
+                                        <Typography gutterBottom variant="h5" component="div">Berat : {value?.weight} gran</Typography>
                                         <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
                                     </CardContent>
                                     <CardActions>
