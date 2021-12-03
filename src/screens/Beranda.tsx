@@ -29,41 +29,37 @@ export default function Beranda() {
 
     return (
         <Container maxWidth='xl' style={{ marginTop: '20px' }}>
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={2}>
-                        <Item>
-                            <NavSideBar style={{ marginLeft: '-50px', fontSize: '20px' }}>Kategory</NavSideBar>
+            <Grid container spacing={2}>
+                <Grid item xs={2}>
+                    <Item>
+                        <NavSideBar style={{ fontSize: '20px' }}>Kategory</NavSideBar>
 
-                            <ToggleButtonGroup
-                                orientation="vertical"
-                                value={view}
-                                exclusive
-                                onChange={handleChange}
-                            >
-                                {
-                                    stateCategories?.data.map((value: any, key: number) => {
-                                        return (
-                                            <ToggleButton key={key} onClick={() => BtnSetCategory(value?.strCategory)} value={value.strCategory} aria-label={value.strCategory}>
-                                                {value.strCategory}
-                                            </ToggleButton>
-                                        )
-                                    })
-                                }
+                        <ToggleButtonGroup
+                            orientation="vertical"
+                            value={view}
+                            exclusive
+                            onChange={handleChange}
+                        >
+                            {
+                                stateCategories?.data.map((value: any, key: number) => {
+                                    return (
+                                        <ToggleButton key={key} onClick={() => BtnSetCategory(value?.strCategory)} value={value.strCategory} aria-label={value.strCategory}>
+                                            {value.strCategory}
+                                        </ToggleButton>
+                                    )
+                                })
+                            }
 
-                            </ToggleButtonGroup>
+                        </ToggleButtonGroup>
 
-                        </Item>
-                    </Grid>
-                    <Grid item xs={10}>
-                        <Item>
-                            <React.Suspense fallback={<div>Loading...</div>}>
-                                <Foods />
-                            </React.Suspense>
-                        </Item>
-                    </Grid>
+                    </Item>
                 </Grid>
-            </Box>
+                <Grid item xs={10}>
+                    <React.Suspense fallback={<div>Loading...</div>}>
+                        <Foods />
+                    </React.Suspense>
+                </Grid>
+            </Grid>
         </Container>
     );
 }

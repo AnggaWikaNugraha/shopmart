@@ -29,33 +29,31 @@ export default function Foods() {
         dispatch(addItem(item))
     }
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={2}>
-                {
-                    stateCategory.data.length ? stateMeals?.data.map((value: any, key: number) => {
-                        return (
-                            <Grid key={key} item xs={6} md={3}>
-                                <Card sx={{ maxWidth: 345 }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="220"
-                                        image={value.strMealThumb}
-                                        alt="Screen Foods"
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" color="text.secondary">{value?.strMeal}</Typography>
-                                        <Typography variant="body2" color="text.secondary">RP. {value?.idMeal}</Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <Keranjang onClick={() => actSetKeranjang(value)} size="small">Add Keranjang</Keranjang>
-                                    </CardActions>
-                                </Card>
-                            </Grid>
-                        )
-                    }) : <p>tidak ada data</p>
-                }
-            </Grid>
-        </Box>
+        <Grid container spacing={2}>
+            {
+                stateCategory.data.length ? stateMeals?.data.map((value: any, key: number) => {
+                    return (
+                        <Grid key={key} item xs={12} md={3}>
+                            <Card sx={{ maxWidth: 345, margin: 'auto' }} >
+                                <CardMedia
+                                    component="img"
+                                    height="220"
+                                    image={value.strMealThumb}
+                                    alt="Screen Foods"
+                                />
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary">{value?.strMeal}</Typography>
+                                    <Typography variant="body2" color="text.secondary">RP. {value?.idMeal}</Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Keranjang onClick={() => actSetKeranjang(value)} size="small">Add Keranjang</Keranjang>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    )
+                }) : <p>tidak ada data</p>
+            }
+        </Grid>
     );
 }
 
