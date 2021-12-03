@@ -1,5 +1,11 @@
 ## Getting Started
 
+![image](https://user-images.githubusercontent.com/37723902/144571152-ad4f1a48-b3b3-42a5-ad3c-effd4c7fa08b.png)
+
+![image](https://user-images.githubusercontent.com/37723902/144571013-664b38b2-564b-4e7d-a911-fbfd10b9b7a8.png)
+
+![image](https://user-images.githubusercontent.com/37723902/144571301-c3b9a1d0-8048-47ea-ab35-04a4a4d8f3fb.png)
+
 ### Dependencies
 
 - NodeJS Version 14
