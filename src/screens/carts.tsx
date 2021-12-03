@@ -15,18 +15,17 @@ const Carts = () => {
                     {
                         stateKeranjang?.map((value: any, key: number) => {
                             return (
-                                <Grid key={key} item xs={3}>
+                                <Grid key={key} item xs={4}>
                                     <Card sx={{ maxWidth: 345 }}>
                                         <CardMedia
                                             component="img"
-                                            height="140"
-                                            image="/static/images/cards/contemplative-reptile.jpg"
+                                            height="220"
+                                            image={value.strMealThumb}
                                             alt="Screen Foods"
                                         />
                                         <CardContent>
-                                            <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
-                                            <Typography variant="body2" color="text.secondary">Berat : {value?.weight}</Typography>
-                                            <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
+                                            <Typography variant="body2" color="text.secondary">Foods : {value?.strMeal}</Typography>
+                                            <Typography variant="body2" color="text.secondary">harga : Rp. {value?.idMeal}</Typography>
                                             <Typography variant="body2" color="text.secondary">Jumlah : {value?.qty}</Typography>
                                         </CardContent>
                                     </Card>
@@ -41,7 +40,7 @@ const Carts = () => {
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Link to={'/checkout'} style={{ color: 'white', textDecoration: 'none', width: '100%' }}>
                         <BtnCheckout>
-                            Checkout
+                            bayar
                         </BtnCheckout>
                     </Link>
                 </Grid>
