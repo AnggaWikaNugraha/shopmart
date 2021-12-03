@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Container } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -13,12 +13,12 @@ const Item = styled(Paper)(({ theme }) => ({
     boxShadow: 'none'
 }));
 
-const Drinks = React.lazy(() => import('../components/drinks'));
 const Foods = React.lazy(() => import('../components/foods'));
 
 export default function Beranda() {
     const dispatch = useDispatch()
     const stateCategories = useSelector((state: any) => state.stateCategories)
+
     const [type, settype] = React.useState('foods')
 
     const actTypeFoods = (value: string) => {
@@ -38,6 +38,7 @@ export default function Beranda() {
                 <Grid container spacing={2}>
                     <Grid item xs={2}>
                         <Item>
+                            <NavSideBar style={{ marginLeft: '-50px', fontSize: '20px' }}>Kategory</NavSideBar>
                             {
                                 stateCategories?.data.map((value: any, key: number) => {
                                     return (
@@ -49,14 +50,7 @@ export default function Beranda() {
                     </Grid>
                     <Grid item xs={10}>
                         <Item>
-                            {
-                                type === 'foods' ? <React.Suspense fallback={<div>Loading...</div>}>
-                                    <Foods />
-                                </React.Suspense> : <React.Suspense fallback={<div>Loading...</div>}>
-                                    <Drinks />
-                                </React.Suspense>
-                            }
-
+                            <Foods />
                         </Item>
                     </Grid>
                 </Grid>

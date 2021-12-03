@@ -10,36 +10,38 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import { foods } from '../data/foods'
-import { useDispatch } from 'react-redux';
+// import { foods } from '../data/foods'
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../redux/action/keranjang';
+import { actMeals } from '../redux/action/meal';
 
 export default function Foods() {
 
     const dispatch = useDispatch()
+    const stateCategory = useSelector((state: any) => state.stateCategories)
+    const stateMeals = useSelector((state: any) => state.stateMeals)
 
-    // const toKeranjang = (item: { id: number, title: string, harga: number, weight: number }) => {
-    //     dispatch(addItem(item))
-    // }
+    React.useEffect(() => {
+        dispatch(actMeals(stateCategory.category))
+    }, [dispatch, stateCategory.category])
 
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 {
-                    foods?.map((value, key) => {
+                    stateMeals?.data.map((value: any, key: number) => {
                         return (
                             <Grid key={key} item xs={3}>
                                 <Card sx={{ maxWidth: 345 }}>
                                     <CardMedia
                                         component="img"
-                                        height="140"
-                                        image="/static/images/cards/contemplative-reptile.jpg"
+                                        height="220"
+                                        image={value.strMealThumb}
                                         alt="Screen Foods"
                                     />
                                     <CardContent>
-                                        <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
-                                        <Typography gutterBottom variant="h5" component="div">Berat : {value?.weight} gran</Typography>
-                                        <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
+                                        <Typography variant="body2" color="text.secondary">{value?.strMeal}</Typography>
+                                        <Typography variant="body2" color="text.secondary">RP. {value?.idMeal}</Typography>
                                     </CardContent>
                                     <CardActions>
                                         <Keranjang size="small">Add Keranjang</Keranjang>
@@ -57,4 +59,8 @@ export default function Foods() {
 const Keranjang = styled(Button)`
     font-size: 12px;
     text-transform: none;
+`
+
+const TitleChoosecategory = styled(Typography)`
+    font-size: 18px;
 `

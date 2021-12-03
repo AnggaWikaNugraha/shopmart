@@ -10,7 +10,7 @@ type IAction = {
 
 const initialState: any = {
     data: [],
-    category: ''
+    category: 'Beef'
 };
 
 export default function reducer(state = initialState, action: IAction) {
