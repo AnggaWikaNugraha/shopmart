@@ -21,7 +21,7 @@ const Carts = () => {
             <Box sx={{ flexGrow: 1, display: 'flex' }}>
                 <Grid container spacing={2} xs={7}>
                     {
-                        stateKeranjang?.map((value: any, key: number) => {
+                        stateKeranjang.length > 0 ? stateKeranjang.map((value: any, key: number) => {
                             return (
                                 <Grid key={key} item xs={4}>
                                     <Card sx={{ maxWidth: 345 }}>
@@ -39,10 +39,10 @@ const Carts = () => {
                                     </Card>
                                 </Grid>
                             )
-                        })
+                        }) : <Typography variant='h5' sx={{ marginBottom: '20px' }} >Belum ada keranjang silahkan order</Typography>
                     }
                 </Grid>
-                <Grid container xs={4} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', marginLeft: '50px' }}>
+                <Grid container xs={4} sx={{ display: 'flex', flexDirection: 'column', marginLeft: '50px' }}>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Keranjang anda : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {sumPrice(stateKeranjang)}</Typography>
                     <BtnCheckout onClick={() => actBayar()}>
