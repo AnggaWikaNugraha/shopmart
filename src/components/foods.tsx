@@ -25,6 +25,9 @@ export default function Foods() {
         dispatch(actMeals(stateCategory.category))
     }, [dispatch, stateCategory.category])
 
+    const actSetKeranjang = (item: { strMeal: string, strMealThumb: string, idMeal: string }) => {
+        dispatch(addItem(item))
+    }
     return (
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
@@ -44,7 +47,7 @@ export default function Foods() {
                                         <Typography variant="body2" color="text.secondary">RP. {value?.idMeal}</Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Keranjang size="small">Add Keranjang</Keranjang>
+                                        <Keranjang onClick={() => actSetKeranjang(value)} size="small">Add Keranjang</Keranjang>
                                     </CardActions>
                                 </Card>
                             </Grid>

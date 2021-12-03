@@ -12,11 +12,11 @@ export default function reducer(state = initialState, action: IAction) {
     switch (action.type) {
 
         case ADD_CART:
-            if (state.find((item: any) => item.id === action.payload.id)) {
+            if (state.find((item: any) => item.idMeal === action.payload.idMeal)) {
 
                 return state.map((item: any) => ({
                     ...item,
-                    qty: item.id === action.payload.id ? item.qty + 1 : item.qty
+                    qty: item.idMeal === action.payload.idMeal ? item.qty + 1 : item.qty
                 }));
 
             } else {

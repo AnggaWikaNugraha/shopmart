@@ -46,7 +46,7 @@ export default function Beranda() {
                                 {
                                     stateCategories?.data.map((value: any, key: number) => {
                                         return (
-                                            <ToggleButton onClick={() => BtnSetCategory(value?.strCategory)} value={value.strCategory} aria-label={value.strCategory}>
+                                            <ToggleButton key={key} onClick={() => BtnSetCategory(value?.strCategory)} value={value.strCategory} aria-label={value.strCategory}>
                                                 {value.strCategory}
                                             </ToggleButton>
                                         )
