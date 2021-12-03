@@ -18,9 +18,9 @@ export default function Drinks() {
 
     const dispatch = useDispatch()
 
-    const toKeranjang = (item: { id: number, title: string, harga: number, weight: number }) => {
-        dispatch(addItem(item))
-    }
+    // const toKeranjang = (item: { id: number, title: string, harga: number, weight: number }) => {
+    //     dispatch(addItem(item))
+    // }
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -42,7 +42,7 @@ export default function Drinks() {
                                         <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Keranjang onClick={() => toKeranjang(value)} size="small">Add Keranjang</Keranjang>
+                                        <Keranjang size="small">Add Keranjang</Keranjang>
                                     </CardActions>
                                 </Card>
                             </Grid>

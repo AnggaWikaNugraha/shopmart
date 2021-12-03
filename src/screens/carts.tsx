@@ -1,5 +1,8 @@
-import { Box, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+
+import { Box, Button, Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const Carts = () => {
 
@@ -24,7 +27,7 @@ const Carts = () => {
                                             <Typography gutterBottom variant="h5" component="div">{value?.title}</Typography>
                                             <Typography variant="body2" color="text.secondary">Berat : {value?.weight}</Typography>
                                             <Typography variant="body2" color="text.secondary">RP. {value?.harga}.00</Typography>
-                                            <Typography variant="body2" color="text.secondary">{value?.qty}</Typography>
+                                            <Typography variant="body2" color="text.secondary">Jumlah : {value?.qty}</Typography>
                                         </CardContent>
                                     </Card>
                                 </Grid>
@@ -36,6 +39,11 @@ const Carts = () => {
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Keranjang anda : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Berat : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
+                    <Link to={'/checkout'} style={{ color: 'white', textDecoration: 'none', width: '100%' }}>
+                        <BtnCheckout>
+                            Checkout
+                        </BtnCheckout>
+                    </Link>
                 </Grid>
             </Box>
         </Container>
@@ -43,3 +51,9 @@ const Carts = () => {
 }
 
 export default Carts
+
+const BtnCheckout = styled(Button)`
+    background-color: #3412fd;
+    color: white;
+    width: 100%;
+`
