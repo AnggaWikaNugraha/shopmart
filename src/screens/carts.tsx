@@ -10,7 +10,8 @@ const Carts = () => {
     const stateKeranjang = useSelector((state: any) => state.stateKeranjang);
     const actBayar = () => {
         if (stateKeranjang.length > 0) {
-
+            alert('berhasil membeli makanan, terimakasih !')
+            window.location.assign('/')
         } else {
             alert('Silahkan Pilih makanan di beranda')
         }
