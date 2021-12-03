@@ -2,6 +2,8 @@ export const GET_CATEGORIES = 'get_categories';
 export const ERROR_GET_CATEGORIES = 'error_get_categories';
 export const SET_CATEGORY = 'set_category';
 export const ERROR_SET_CATEGORY = 'error_set_category';
+export const ERROR_MESSAGE = 'error_message';
+export const SET_ERROR = 'error_message';
 
 type IAction = {
     type: string,
@@ -10,7 +12,11 @@ type IAction = {
 
 const initialState: any = {
     data: [],
-    category: 'Beef'
+    category: 'Beef',
+    error: {
+        iserror: false,
+        message: '',
+    }
 };
 
 export default function reducer(state = initialState, action: IAction) {

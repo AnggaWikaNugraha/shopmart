@@ -16,7 +16,12 @@ export const actMeals = (item: string) => {
                     payload: res.data.meals
                 })
             }
-        }).catch(er => alert(er))
+        }).catch(er => {
+            alert(er)
+            dispacth({
+                type: ERROR_GET_MEALS,
+            })
+        })
 
     }
 }

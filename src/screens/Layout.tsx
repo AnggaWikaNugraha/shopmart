@@ -4,9 +4,11 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Container } from '@mui/material';
+import { Alert, Container, Stack } from '@mui/material';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { styled } from '@mui/material/styles';
 
 export default function AppBarWeb() {
 
@@ -26,7 +28,12 @@ export default function AppBarWeb() {
 
                             <Button color="inherit">Login</Button>
                             <Link to={'/carts'} style={{ color: 'white', textDecoration: 'none' }}>
-                                <div>cart anda: {stateKeranjang.length > 0 ? stateKeranjang.length : 0}</div>
+                                <div style={{ display: 'flex' }}>
+                                    <ShoppingCartIcon />
+                                    <Count>
+                                        {stateKeranjang.length > 0 ? stateKeranjang.length : 0}
+                                    </Count>
+                                </div>
                             </Link>
                         </Toolbar>
                     </Container>
@@ -34,5 +41,17 @@ export default function AppBarWeb() {
             </Box>
             <Outlet />
         </>
+    );
+}
+
+const Count = styled('div')`
+    margin-top: -10px;
+`
+
+export const BasicAlerts = (props: { message: string }) => {
+    return (
+        <Stack sx={{ width: '100%' }} spacing={2}>
+            <Alert severity="error">{props.message}</Alert>
+        </Stack>
     );
 }

@@ -32,9 +32,9 @@ export default function Foods() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 {
-                    stateMeals?.data.map((value: any, key: number) => {
+                    stateCategory.data.length ? stateMeals?.data.map((value: any, key: number) => {
                         return (
-                            <Grid key={key} item xs={3}>
+                            <Grid key={key} item xs={6} md={3}>
                                 <Card sx={{ maxWidth: 345 }}>
                                     <CardMedia
                                         component="img"
@@ -52,7 +52,7 @@ export default function Foods() {
                                 </Card>
                             </Grid>
                         )
-                    })
+                    }) : <p>tidak ada data</p>
                 }
             </Grid>
         </Box>

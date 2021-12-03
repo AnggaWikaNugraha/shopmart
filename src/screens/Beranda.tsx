@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Container, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Alert, Button, Container, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -21,9 +21,7 @@ export default function Beranda() {
     const BtnSetCategory = (value: string) => { dispatch(actSetCategory(value)) }
     const [view, setView] = React.useState('Beef');
 
-    const handleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
-        setView(nextView);
-    };
+    const handleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => { setView(nextView); };
 
     React.useEffect(() => {
         dispatch(actCategories())

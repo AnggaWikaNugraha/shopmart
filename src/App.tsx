@@ -11,7 +11,6 @@ import store from "../src/redux/store";
 
 const Beranda = lazy(() => import('./screens/Beranda'));
 const Carts = lazy(() => import('./screens/carts'))
-const Checkout = lazy(() => import('./screens/checkout'))
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Beranda />} />
               <Route path="/carts" element={<Carts />} />
-              <Route path="/checkout" element={<Checkout />} />
             </Route>
           </Routes>
         </Suspense>

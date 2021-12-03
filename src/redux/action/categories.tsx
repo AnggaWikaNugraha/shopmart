@@ -16,7 +16,12 @@ export const actCategories = () => {
                     payload: res.data.categories
                 })
             }
-        }).catch(er => alert(er))
+        }).catch(er => {
+            alert(er)
+            dispacth({
+                type: ERROR_GET_CATEGORIES,
+            })
+        })
 
     }
 }
