@@ -29,6 +29,10 @@ Go to project folder :
 > npm start
 > 
 > open http://localhost:3000 in your browser
+
+> login menggunakan 
+    email: 'user@gmail.com',
+    password: '123'
 ```
 
 ### Stack technology
