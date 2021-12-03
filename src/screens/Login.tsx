@@ -50,7 +50,7 @@ const Login = () => {
                         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Item sx={{ width: { xs: '100%', md: '40%', marginTop: '100px' } }}>
                                 <Title fontSize={'25px'} fontWeight={'700'} >Login</Title>
-                                <Form onSubmit={formik.handleSubmit}>
+                                <Form data-testid='login-form' onSubmit={formik.handleSubmit}>
 
                                     <Title fontSize={'18px'} fontWeight={'400'} >Email</Title>
                                     <Field
