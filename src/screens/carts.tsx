@@ -3,6 +3,7 @@ import { Box, Button, Card, CardContent, CardMedia, Container, Grid, Typography 
 import { useSelector } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { sumPrice } from '../utils/sumTotal';
 
 const Carts = () => {
 
@@ -42,8 +43,7 @@ const Carts = () => {
                 </Grid>
                 <Grid container xs={4} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', marginLeft: '50px' }}>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Keranjang anda : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
-                    <Typography variant='h5' sx={{ marginBottom: '20px' }} >Berat : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
-                    <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
+                    <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {sumPrice(stateKeranjang)}</Typography>
                     <BtnCheckout onClick={() => actBayar()}>
                         bayar
                     </BtnCheckout>
