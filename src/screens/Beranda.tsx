@@ -32,7 +32,6 @@ export default function Beranda() {
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <Item>
-                        <NavSideBar style={{ fontSize: '20px' }}>Kategory</NavSideBar>
 
                         <ToggleButtonGroup
                             orientation="vertical"
