@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Container, Typography } from '@mui/material';
+import { Button, Container, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -18,15 +18,12 @@ const Foods = React.lazy(() => import('../components/foods'));
 export default function Beranda() {
     const dispatch = useDispatch()
     const stateCategories = useSelector((state: any) => state.stateCategories)
+    const BtnSetCategory = (value: string) => { dispatch(actSetCategory(value)) }
+    const [view, setView] = React.useState('Beef');
 
-    const [type, settype] = React.useState('foods')
-
-    const actTypeFoods = (value: string) => {
-        dispatch(actSetCategory(value))
-    }
-    const actTypeDrinks = () => {
-        settype('drinks')
-    }
+    const handleChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
+        setView(nextView);
+    };
 
     React.useEffect(() => {
         dispatch(actCategories())
@@ -39,18 +36,32 @@ export default function Beranda() {
                     <Grid item xs={2}>
                         <Item>
                             <NavSideBar style={{ marginLeft: '-50px', fontSize: '20px' }}>Kategory</NavSideBar>
-                            {
-                                stateCategories?.data.map((value: any, key: number) => {
-                                    return (
-                                        <NavSideBar key={key} onClick={() => actTypeFoods(value?.strCategory)}>{value.strCategory}</NavSideBar>
-                                    )
-                                })
-                            }
+
+                            <ToggleButtonGroup
+                                orientation="vertical"
+                                value={view}
+                                exclusive
+                                onChange={handleChange}
+                            >
+                                {
+                                    stateCategories?.data.map((value: any, key: number) => {
+                                        return (
+                                            <ToggleButton onClick={() => BtnSetCategory(value?.strCategory)} value={value.strCategory} aria-label={value.strCategory}>
+                                                {value.strCategory}
+                                            </ToggleButton>
+                                        )
+                                    })
+                                }
+
+                            </ToggleButtonGroup>
+
                         </Item>
                     </Grid>
                     <Grid item xs={10}>
                         <Item>
-                            <Foods />
+                            <React.Suspense fallback={<div>Loading...</div>}>
+                                <Foods />
+                            </React.Suspense>
                         </Item>
                     </Grid>
                 </Grid>
