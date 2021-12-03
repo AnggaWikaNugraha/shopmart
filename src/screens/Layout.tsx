@@ -26,7 +26,6 @@ export default function AppBarWeb() {
                                 </Link>
                             </Typography>
 
-                            <Button color="inherit">Login</Button>
                             <Link to={'/carts'} style={{ color: 'white', textDecoration: 'none' }}>
                                 <div style={{ display: 'flex' }}>
                                     <ShoppingCartIcon />

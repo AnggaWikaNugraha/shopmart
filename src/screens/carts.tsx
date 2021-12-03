@@ -7,7 +7,13 @@ import { Link } from 'react-router-dom';
 const Carts = () => {
 
     const stateKeranjang = useSelector((state: any) => state.stateKeranjang);
+    const actBayar = () => {
+        if (stateKeranjang.length > 0) {
 
+        } else {
+            alert('Silahkan Pilih makanan di beranda')
+        }
+    }
     return (
         <Container maxWidth='xl' style={{ marginTop: '20px' }}>
             <Box sx={{ flexGrow: 1, display: 'flex' }}>
@@ -38,11 +44,9 @@ const Carts = () => {
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Keranjang anda : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Berat : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
                     <Typography variant='h5' sx={{ marginBottom: '20px' }} >Total : {stateKeranjang?.length > 0 ? stateKeranjang.length : 0}</Typography>
-                    <Link to={'/checkout'} style={{ color: 'white', textDecoration: 'none', width: '100%' }}>
-                        <BtnCheckout>
-                            bayar
-                        </BtnCheckout>
-                    </Link>
+                    <BtnCheckout onClick={() => actBayar()}>
+                        bayar
+                    </BtnCheckout>
                 </Grid>
             </Box>
         </Container>

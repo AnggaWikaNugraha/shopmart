@@ -17,6 +17,7 @@ export default function reducer(state = initialState, action: IAction) {
                 return state.map((item: any) => ({
                     ...item,
                     qty: item.idMeal === action.payload.idMeal ? item.qty + 1 : item.qty
+
                 }));
 
             } else {
@@ -24,6 +25,7 @@ export default function reducer(state = initialState, action: IAction) {
                 return [...state, { ...action.payload, qty: 1 }];
 
             }
+
 
         default:
             return state;
